@@ -9,7 +9,7 @@ Welcome to my **Snort 2 Network Intrusion Detection System (NIDS)** project, a c
   - Custom rules to detect ICMP pings and port scans.
   - Console-based alert logging.
 - **Results**: Successfully detected 16 TCP SYN scans in a controlled test environment.
-
+https://github.com/Chinkhuselts/snort2-nids-project/blob/main/media/Demo.mp4
 ## Repository Structure
 - `configs/`: Snort configuration (`snort.conf`) and custom rules (`local.rules`).
 - `logs/`: Sample alert output (`sample_alerts.txt`).

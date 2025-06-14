@@ -7,6 +7,6 @@ wget https://www.snort.org/downloads/snort/snort-2.9.20.tar.gz
 tar -xvzf snort-2.9.20.tar.gz && cd snort-2.9.20
 ./configure --enable-sourcefire && make && sudo make install
 sudo mkdir -p /etc/snort /etc/snort/rules /var/log/snort
-sudo cp configs/snort.conf /etc/snort/
+sudo cp etc/snort.conf /etc/snort/
 sudo cp configs/local.rules /etc/snort/rules/
 sudo ldconfig

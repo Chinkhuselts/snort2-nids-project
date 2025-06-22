@@ -1,7 +1,7 @@
 # Snort 2 NIDS Project Report
 
 ## Introduction
-As a cybersecurity student, I developed a **Network Intrusion Detection System (NIDS)** using **Snort 2.9.20** to monitor network traffic and detect unauthorized activities, such as ICMP pings and port scans. This project showcases my skills in network security, Linux administration, and intrusion detection, making it a key piece for my portfolio.
+I developed a **Network Intrusion Detection System (NIDS)** using **Snort 2.9.20** to monitor network traffic and detect unauthorized activities, such as ICMP pings and port scans. This project showcases my skills in network security, Linux administration, and intrusion detection.
 
 ## Problem Statement
 Unauthorized network activities, like ping sweeps and port scans, are common precursors to cyberattacks. A NIDS is essential for detecting these threats in real-time to enable rapid response and mitigation.
@@ -46,15 +46,16 @@ Included rules:
     include $RULE_PATH/local.rules
 
 Created local.rules:
+```
     alert icmp any any -> $HOME_NET any (msg:"ICMP Ping Detected"; sid:1000001; rev:1;)
     alert tcp any any -> $HOME_NET any (msg:"TCP SYN Scan Detected"; flags:S; sid:1000002; rev:1;)
-
+```
 ### 3. Configuration Validation
 
-    Tested configuration to ensure no errors:
+  Tested configuration to ensure no errors:
+  
     sudo snort -T -c /etc/snort/snort.conf
     Verified snort.conf and local.rules syntax to avoid issues like missing files or invalid rules.
-
 ### 4. Attack Simulation
 
     Ran Snort in NIDS mode:
@@ -65,12 +66,10 @@ Created local.rules:
     Used Wireshark to capture and verify traffic.
 
 Results
-
     Alerts Generated:
         15 ICMP ping alerts.
         6 TCP SYN scan alerts.
-    Sample Alert (Console Output):
-06/11-14:30:22.123456 [**] [1:1000001:1] ICMP Ping Detected [**] [Priority: 0] {ICMP} 192.168.1.101 -> 192.168.1.100
+    Sample Alert (Console Output): 06/11-14:30:22.123456 [**] [1:1000001:1] ICMP Ping Detected [**] [Priority: 0] {ICMP} 192.168.1.101 -> 192.168.1.10
 Validation: Wireshark confirmed matching ICMP and TCP SYN packets.
 Mitigation Recommendations:
     Block malicious IPs using iptables.
